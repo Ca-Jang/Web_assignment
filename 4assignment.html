@@ -3,44 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Developer Portfolio</title>
+    <title>AI Developer Portfolio & Roadmap</title>
     <style>
-        /* CSS Variables & Reset */
+        /* CSS Variables & Global Reset */
         :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-main: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --accent: #6bb9f0; /* 이지적인 블루 톤 */
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
         }
+
+        /* 자바스크립트 없이 부드러운 스크롤 구현 */
+        html {
+            scroll-behavior: smooth;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            line-height: 1.7; 
+        }
 
         /* Navigation */
-        header { position: fixed; top: 0; width: 100%; background: rgba(18, 18, 18, 0.95); padding: 1rem 0; border-bottom: 1px solid #333; z-index: 1000; text-align: center; }
-        nav a { color: var(--text-main); text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 1.1rem; transition: color 0.3s ease; }
-        nav a:hover, nav a.active { color: var(--accent); }
+        header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(15, 23, 42, 0.8); 
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0; 
+            border-bottom: 1px solid #334155; 
+            z-index: 1000; 
+            text-align: center; 
+        }
+        nav a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: 500; 
+            font-size: 1rem; 
+            transition: color 0.3s ease; 
+        }
+        nav a:hover { color: var(--accent); }
 
         /* Layout & Sections */
-        section { min-height: 100vh; padding: 100px 20px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; max-width: 1000px; margin: 0 auto; }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
-        h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
-        p { font-size: 1.1rem; color: var(--text-muted); text-align: center; max-width: 700px; margin-bottom: 2rem; }
+        section { 
+            min-height: 100vh; 
+            padding: 120px 20px 60px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 3rem; 
+            color: var(--accent); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* Skills Layout */
-        .skills-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .skill-tag { background: var(--bg-card); padding: 10px 20px; border-radius: 20px; border: 1px solid #333; font-weight: bold; }
+        /* Home Section */
+        #home { justify-content: center; text-align: center; }
+        #home h1 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        #home p { font-size: 1.25rem; color: var(--text-muted); max-width: 750px; }
 
         /* Projects - Card Layout */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; }
-        .card { background: var(--bg-card); border: 1px solid #333; border-radius: 12px; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { font-size: 1rem; text-align: left; margin-bottom: 15px; }
-        .card .tech-stack { font-size: 0.9rem; color: var(--accent); font-weight: bold; }
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            width: 100%; 
+        }
+        .card { 
+            background: var(--bg-card); 
+            border: 1px solid #334155; 
+            border-radius: 16px; 
+            padding: 30px; 
+            transition: all 0.3s ease; 
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+        .card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--accent); }
+        .card p { font-size: 1rem; color: var(--text-muted); margin-bottom: 20px; }
+        .tech-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tag { font-size: 0.8rem; background: #0f172a; padding: 4px 10px; border-radius: 6px; color: var(--accent); border: 1px solid var(--accent); }
+
+        /* Roadmap Section - Semester List */
+        .roadmap-container { width: 100%; max-width: 800px; }
+        .roadmap-item { 
+            position: relative; 
+            padding-left: 40px; 
+            margin-bottom: 40px; 
+            border-left: 2px solid #334155;
+        }
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        .semester-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 10px; color: var(--text-main); }
+        .plan-detail { color: var(--text-muted); }
+        .plan-detail ul { margin-top: 8px; list-style-position: inside; }
 
         /* Footer */
-        footer { text-align: center; padding: 30px; border-top: 1px solid #333; color: var(--text-muted); }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #334155; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -48,49 +129,76 @@
     <header>
         <nav>
             <a href="#home">Home</a>
-            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#roadmap">Roadmap</a>
         </nav>
     </header>
 
     <section id="home">
-        <h1>안녕하세요, AI 개발자를 꿈꾸는 <span style="color:#6bb9f0;">장재덕</span>입니다.</h1>
-        <p>금오공과대학교 컴퓨터공학부에 재학 중이며, 탄탄한 컴퓨터 사이언스 기초를 바탕으로 데이터 속에서 가치를 찾아내는 인공지능 모델을 개발하는 것에 열정을 가지고 있습니다.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <span class="skill-tag">C++ & Java (OOP)</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Data Structures & Algorithms</span>
-            <span class="skill-tag">HTML / CSS / Vanilla JS</span>
-        </div>
+        <h1>Building the Future with <span style="color: var(--accent);">Artificial Intelligence</span></h1>
+        <p>금오공과대학교 컴퓨터공학부 2학년에 재학 중이며, 효율적인 알고리즘과 탄탄한 CS 기초를 바탕으로 실무 문제를 해결하는 AI 개발자를 목표로 하고 있습니다.</p>
     </section>
 
     <section id="projects">
-        <h2>Projects (To-Be)</h2>
-        <div class="projects-grid">
+        <h2>Target Projects</h2>
+        <div class="grid-container">
             <div class="card">
-                <h3>정규표현식 기반 텍스트 파서</h3>
-                <p>복잡한 비정형 텍스트 데이터에서 필요한 정보만 효율적으로 추출하고 전처리하기 위해 정규표현식을 활용하여 자체 구현한 데이터 파싱 툴입니다.</p>
-                <div class="tech-stack">#C++ #Regex #Data_Parsing</div>
+                <h3>정규표현식 데이터 전처리기</h3>
+                <p>비정형 텍스트 데이터에서 유의미한 패턴을 추출하고 AI 모델 학습을 위한 클렌징을 수행하는 C++ 기반 툴입니다.</p>
+                <div class="tech-tags"><span class="tag">C++</span> <span class="tag">Regex</span> <span class="tag">Data Prep</span></div>
             </div>
             <div class="card">
-                <h3>트리/스택 알고리즘 최적화 분석기</h3>
-                <p>다양한 트리 및 스택 구조를 구현하고, 특정 연산에 대해 O(log n)의 시간 복잡도를 보장하도록 알고리즘을 최적화 및 시각화한 프로젝트입니다.</p>
-                <div class="tech-stack">#C++ #Data_Structures #Algorithms</div>
+                <h3>OOP 기반 영화 추천 엔진</h3>
+                <p>Java의 상속과 다형성을 활용하여 다양한 추천 알고리즘을 유연하게 교체할 수 있는 사용자 맞춤형 추천 시스템입니다.</p>
+                <div class="tech-tags"><span class="tag">Java</span> <span class="tag">OOP</span> <span class="tag">System Design</span></div>
             </div>
             <div class="card">
-                <h3>객체지향 설계 기반 추천 시스템</h3>
-                <p>클래스의 상속(super)과 다형성을 깊이 있게 활용하여 확장성을 고려한 사용자 맞춤형 도서/영화 추천 콘솔 프로그램입니다.</p>
-                <div class="tech-stack">#Java #OOP #Recommendation</div>
+                <h3>트리 기반 검색 최적화 연구</h3>
+                <p>시간 복잡도 O(log n)을 보장하는 균형 이진 트리 자료구조를 구현하고, 대용량 데이터 탐색 성능을 분석합니다.</p>
+                <div class="tech-tags"><span class="tag">C++</span> <span class="tag">Data Structure</span> <span class="tag">Algo</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <h2>Study Roadmap</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-item">
+                <div class="semester-title">2학년 1학기: CS Foundation</div>
+                <div class="plan-detail">
+                    C++, Java 기반 객체지향 설계와 핵심 자료구조(스택, 트리)의 완벽한 이해 및 직접 구현.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="semester-title">2학년 2학기: System & AI Intro</div>
+                <div class="plan-detail">
+                    운영체제 및 컴퓨터 구조 학습을 통한 시스템 이해도 제고. Python 문법 숙달 및 기초 수학(선형대수) 학습.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="semester-title">3학년 1학기: Machine Learning</div>
+                <div class="plan-detail">
+                    데이터베이스 설계 역량 확보. Scikit-learn을 활용한 머신러닝 기초 모델링 및 개인 프로젝트 시작.
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="semester-title">3학년 2학기: Deep Learning</div>
+                <div class="plan-detail">
+                    PyTorch/TensorFlow 프레임워크 학습. NLP 또는 CV 분야 중 하나를 선택하여 심화 프로젝트 수행.
+                </div>
+            </div>
+            <div class="roadmap-item" style="border: none;">
+                <div class="semester-title">4학년: Capstone & Career</div>
+                <div class="plan-detail">
+                    실제 문제를 해결하는 AI 캡스톤 디자인 수행. 포트폴리오 고도화 및 인턴십을 통한 실무 경험 확보.
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 장재덕. All rights reserved. | Kumoh National Institute of Technology</p>
+        <p>&copy; 2026 AI Developer Portfolio | Kumoh Institute of Technology</p>
     </footer>
+
 </body>
 </html>
