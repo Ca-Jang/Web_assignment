@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Developer Portfolio</title>
+    <style>
+        /* CSS Variables & Reset */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --accent: #6bb9f0; /* 이지적인 블루 톤 */
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+
+        /* Navigation */
+        header { position: fixed; top: 0; width: 100%; background: rgba(18, 18, 18, 0.95); padding: 1rem 0; border-bottom: 1px solid #333; z-index: 1000; text-align: center; }
+        nav a { color: var(--text-main); text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 1.1rem; transition: color 0.3s ease; }
+        nav a:hover, nav a.active { color: var(--accent); }
+
+        /* Layout & Sections */
+        section { min-height: 100vh; padding: 100px 20px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; max-width: 1000px; margin: 0 auto; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        p { font-size: 1.1rem; color: var(--text-muted); text-align: center; max-width: 700px; margin-bottom: 2rem; }
+
+        /* Skills Layout */
+        .skills-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .skill-tag { background: var(--bg-card); padding: 10px 20px; border-radius: 20px; border: 1px solid #333; font-weight: bold; }
+
+        /* Projects - Card Layout */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; }
+        .card { background: var(--bg-card); border: 1px solid #333; border-radius: 12px; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+        .card p { font-size: 1rem; text-align: left; margin-bottom: 15px; }
+        .card .tech-stack { font-size: 0.9rem; color: var(--accent); font-weight: bold; }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px; border-top: 1px solid #333; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>안녕하세요, AI 개발자를 꿈꾸는 <span style="color:#6bb9f0;">장재덕</span>입니다.</h1>
+        <p>금오공과대학교 컴퓨터공학부에 재학 중이며, 탄탄한 컴퓨터 사이언스 기초를 바탕으로 데이터 속에서 가치를 찾아내는 인공지능 모델을 개발하는 것에 열정을 가지고 있습니다.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <span class="skill-tag">C++ & Java (OOP)</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Structures & Algorithms</span>
+            <span class="skill-tag">HTML / CSS / Vanilla JS</span>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects (To-Be)</h2>
+        <div class="projects-grid">
+            <div class="card">
+                <h3>정규표현식 기반 텍스트 파서</h3>
+                <p>복잡한 비정형 텍스트 데이터에서 필요한 정보만 효율적으로 추출하고 전처리하기 위해 정규표현식을 활용하여 자체 구현한 데이터 파싱 툴입니다.</p>
+                <div class="tech-stack">#C++ #Regex #Data_Parsing</div>
+            </div>
+            <div class="card">
+                <h3>트리/스택 알고리즘 최적화 분석기</h3>
+                <p>다양한 트리 및 스택 구조를 구현하고, 특정 연산에 대해 O(log n)의 시간 복잡도를 보장하도록 알고리즘을 최적화 및 시각화한 프로젝트입니다.</p>
+                <div class="tech-stack">#C++ #Data_Structures #Algorithms</div>
+            </div>
+            <div class="card">
+                <h3>객체지향 설계 기반 추천 시스템</h3>
+                <p>클래스의 상속(super)과 다형성을 깊이 있게 활용하여 확장성을 고려한 사용자 맞춤형 도서/영화 추천 콘솔 프로그램입니다.</p>
+                <div class="tech-stack">#Java #OOP #Recommendation</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 장재덕. All rights reserved. | Kumoh National Institute of Technology</p>
+    </footer>
+</body>
+</html>
